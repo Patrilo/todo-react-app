@@ -1,5 +1,5 @@
 .App {
-  width: 20rem;
+  width: 35rem;
   max-width: 90vw;
   height: 30rem;
   max-height: 90vh;
@@ -63,4 +63,22 @@
 .ItemForm input::placeholder {
   color: #90a4ae;
   font-weight: 100;
+}
+
+.Item.done {
+    border: 0;
+    padding: 10px;
+    margin: 0 10px;
+    background-color: #5EBA7D;
+    color: white;
+    font-size: 14px;
+}
+
+.Item.delete {
+    border: 0;
+    padding: 10px;
+    margin: 0 10px;
+    background-color: #F22F47;
+    font-size: 14px;
+    color: white;
 }
