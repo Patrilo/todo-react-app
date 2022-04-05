@@ -1,14 +1,6 @@
-# ⚛️ Taller React: aplicación Todo
+#  Ejercicio Práctico React: aplicación To-do List
 
-Este repo lo vamos a utilizar como segunda parte de la charla [<devs> Taller de React: de 0 a ninja </devs>](https://www.meetup.com/es-ES/WordPress-Madrid/events/263751142/), haciendo ahora un ejercicio práctico.
 
-> 👉 Los slides de la primera parte [los puedes ver aquí](https://www.slideshare.net/SoniaRuizCayuela/taller-de-react-de-0-a-ninja).
-
-En la primera parte hemos visto qué es React, hemos echado un vistazo a su ecosistema y repasado cuáles son los elementos más importantes: componentes, estado y props. Si has aguantado hasta aquí, ¡ahora viene lo mejor! Vamos a poner todo esto en práctica para que empieces tu camino a ser ninja. 😎
-
-<p align="center">
-  <img alt="Nina" width="500" src="https://media.giphy.com/media/ErdfMetILIMko/source.gif">
-</p>
 
 ## ¿Qué vamos a hacer?
 
@@ -20,7 +12,7 @@ El resultado final será este:
   <img alt="Aplicación Todo" height="600" src="https://raw.githubusercontent.com/YuneVK/portfolio-test/master/images/aplicacion-todo.gif">
 </p>
 
-> 💡 Si, durante el taller, en algún momento te atascas y no sabes cómo continuar, ¡no dudes en preguntarnos! Aunque te vamos a dejar una pista 😏, en la rama `proyecto` podrás ver el código del ejercicio (recuerda que puedes cambiar de rama con el comando `git checkout <nombre>`). Puedes tenerlo como referencia, ¡pero recuerda que como se aprende de verdad es peleándote con el código!
+> 💡 Si, durante el taller, en algún momento te atascas y no sabes cómo continuar, ¡no dudes en preguntarnos! Aunque te vamos a dejar una pista 😏, en la rama `dev` podrás ver el código del ejercicio (recuerda que puedes cambiar de rama con el comando `git checkout <nombre>`). Puedes tenerlo como referencia, ¡pero recuerda que como se aprende de verdad es peleándote con el código!
 
 ¿Estás listo? ¡Pues empecemos! 🤗
 
