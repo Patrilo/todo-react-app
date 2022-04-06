@@ -22,11 +22,11 @@ El resultado final será este:
 
 El primer paso es sencillo: ¡hay que configurar nuestro entorno de trabajo!
 
-1. Instala `create-react-app` de forma global: `npm install -g create-react-app`. Con `-g` indicamos que es un paquete que vamos a instalar a nivel global.
-2. Clona este repositorio: `git clone https://github.com/YuneVK/taller-react-todo`
+
+1. Clona este repositorio: `git clone https://github.com/Patrilo/todo-react-app.git`
 3. Entra en el directorio del repo: `cd taller-react-todo`
-4. Inicializa el proyecto de React: `create-react-app .`. Con el `.` indicamos que se instale en el directorio actual. Si quisiéramos que se creara una carpeta tendríamos que indicar su nombre así: `create-react-app nombre-de-la-carpeta`.
-5. Arranca el proyecto: `npm start`.
+4. Desde la rama master, instala todas las dependencias con npm install y después, yarn install
+5. Arranca el proyecto: `npm start`, una vez se ha instalado todo correctamente.
 6. Abre el navegador y entra a la dirección `localhost:3000` para comprobar que está funcionando.
 
 <p align="center">
