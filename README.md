@@ -1,18 +1,12 @@
-# ⚛️ Taller React: aplicación Todo
+#  Ejercicio Práctico React: aplicación To-do List
 
-Este repo lo vamos a utilizar como segunda parte de la charla [<devs> Taller de React: de 0 a ninja </devs>](https://www.meetup.com/es-ES/WordPress-Madrid/events/263751142/), haciendo ahora un ejercicio práctico.
-
-> 👉 Los slides de la primera parte [los puedes ver aquí](https://www.slideshare.net/SoniaRuizCayuela/taller-de-react-de-0-a-ninja).
-
-En la primera parte hemos visto qué es React, hemos echado un vistazo a su ecosistema y repasado cuáles son los elementos más importantes: componentes, estado y props. Si has aguantado hasta aquí, ¡ahora viene lo mejor! Vamos a poner todo esto en práctica para que empieces tu camino a ser ninja. 😎
-
-<p align="center">
-  <img alt="Nina" width="500" src="https://media.giphy.com/media/ErdfMetILIMko/source.gif">
-</p>
+Este proyecto fue creado por YuneVK. El repositorio original lo podemos encontrar en esta url https://github.com/YuneVK/taller-react-todo Es un proyecto muy completo para empezar a trabajar con React, y las indicaciones para trabajar con el proyecto son perfectas para crear un proyecto desde 0. Las podemos encontrar también en este README
 
 ## ¿Qué vamos a hacer?
 
-Vamos a hacer un sencillo Todo en el que pongamos en práctica todo lo que hemos aprendido hoy: crear un proyecto, componentes, `state`, `props`y alguna cosilla de `ES6`.
+Desde esta práctica, vamos a trabajar sobre el proyecto de ToDo List original y añadiremos alguna nueva funcionalidad para que podamos poner en práctica lo que hemos visto durante el curso.
+
+
 
 El resultado final será este:
 
@@ -20,9 +14,7 @@ El resultado final será este:
   <img alt="Aplicación Todo" height="600" src="https://raw.githubusercontent.com/YuneVK/portfolio-test/master/images/aplicacion-todo.gif">
 </p>
 
-> 💡 Si, durante el taller, en algún momento te atascas y no sabes cómo continuar, ¡no dudes en preguntarnos! Aunque te vamos a dejar una pista 😏, en la rama `proyecto` podrás ver el código del ejercicio (recuerda que puedes cambiar de rama con el comando `git checkout <nombre>`). Puedes tenerlo como referencia, ¡pero recuerda que como se aprende de verdad es peleándote con el código!
 
-¿Estás listo? ¡Pues empecemos! 🤗
 
 ## Creando nuestra aplicación
 
@@ -30,132 +22,19 @@ El resultado final será este:
 
 El primer paso es sencillo: ¡hay que configurar nuestro entorno de trabajo!
 
-1. Instala `create-react-app` de forma global: `npm install -g create-react-app`. Con `-g` indicamos que es un paquete que vamos a instalar a nivel global.
-2. Clona este repositorio: `git clone https://github.com/YuneVK/taller-react-todo`
+
+1. Clona este repositorio: `git clone https://github.com/Patrilo/todo-react-app.git`
 3. Entra en el directorio del repo: `cd taller-react-todo`
-4. Inicializa el proyecto de React: `create-react-app .`. Con el `.` indicamos que se instale en el directorio actual. Si quisiéramos que se creara una carpeta tendríamos que indicar su nombre así: `create-react-app nombre-de-la-carpeta`.
-5. Arranca el proyecto: `npm start`.
+4. Desde la rama master, instala todas las dependencias con npm install y después, yarn install
+5. Arranca el proyecto: `npm start`, una vez se ha instalado todo correctamente.
 6. Abre el navegador y entra a la dirección `localhost:3000` para comprobar que está funcionando.
 
 <p align="center">
   <img alt="Create-react-app home" width="600" src="https://raw.githubusercontent.com/YuneVK/portfolio-test/master/images/home-create-react-app.png">
 </p>
 
-_It works!_ 😁 ¡Seguimos!
 
-> ⚠️ **¿Tienes algún problema con Git/Node y no puedes seguir estos pasos?** ¡No te preocupes! Hemos creado este repo de [Codesandbox](https://codesandbox.io/s/create-react-app-0q9nn?fontsize=14) para que no te pierdas nada del taller. Así puedes seguirlo, y cuando termine vemos cómo podemos arreglar esos problemas. 😉
-
-### 2. Destripando la estructura del proyecto
-
-En este paso vamos a ver mientras la estructura del proyecto generado (los archivos que no hemos incluido los vamos a ignorar hoy 🤫):
-
-```
-taller-react-todo/
-  node_modules/
-  public/
-    index.html
-    favicon.ico
-  src/
-    App.css
-    App.js
-    App.test.js
-    index.css
-    index.js
-    logo.svg
-  package.json
-  README.md
-```
-
-Tenemos tres carpetas: `node_modules`, `src` y `public`.
-
-- `node_modules`: es donde de almacenan las dependencias del proyecto.
-- `public`: la raíz del servidor, donde está el `index.html` y donde añadiremos los archivos estáticos que queramos utilizar (por ejemplo las imágenes).
-- `src`: el directorio `source`, donde estará todo el código relativo a compoentes
-
-Además, en la raíz también tenemos los siguientes archivos:
-
-- `README.md`: archivo markdown con la información del proyecto.
-
-- `package.json`: donde está la información de nuestro proyecto (dependencias, scripts, etc).
-
-- `.gitignore`: donde se configuran los archivos que `git` va a ignorar, es decir, los que no se van a subir. Un ejemplo de archivos que se deben subir es aquel donde tengas _API keys_.
-
-  > ⚠️ **¡CUIDADO CON SUBIR `NODE_MODULES!`** Esta carpeta suele ser muy pesada e innecesaria la subida, por lo que se suele añadir al `.gitignore` para que no se suba. Por defecto `create-react-app`ya lo añade, pero debes tenerlo en cuenta para otros proyectos en los que utilices NPM.
-
-Otro archivo clave en este proyecto es el `index.js` que está dentro de la carpeta `src`, ya que es el punto de entrada de la aplicación. Si lo abrimos veremos que tiene muy pocas líneas:
-
-```js
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import * as serviceWorker from "./serviceWorker";
-
-ReactDOM.render(<App />, document.getElementById("root"));
-```
-
-Pero son claves para su funcionamiento. Como hablamos antes, lo primero es importar `React` y todos sus paquetes necesarios (`react-dom`), además del componente principal que vamos a utilizar, `App`.
-
-A través del método `ReactDOM.render` renderizamos el componente `App` dentro del elemento del DOM que tiene como ID `root` (una pista, si vamos a `public/index.html` veremos ese elemento).
-
-Si vamos al componente App (`src/App.js`) veremos el siguiente contenido:
-
-```js
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
-```
-
-Esto ya te va resultando familiar, ¿verdad? 😄
-
-> ⚠️ **¡Recuerda!** `class` es una palabra reservada de JavaScript, por lo que, cuando queramos establecer este atributo, tendremos que hacerlo con `className`.
-
-> ⚠️ **¡Otra cosa que debes tener en cuenta!** En React es necesario que todo lo que retornemos esté contenido en un único elemento. Por ejemplo, esto nos daría error:
->
-> ```js
-> return (
->     <h1>Elemento</h1>
->     <h2>Elemento</h2>
-> );
-> ```
->
-> Mientras que esto sí sería correcto:
->
-> ```js
-> return (
->   <div>
->     <h1>Elemento</h1>
->     <h2>Elemento</h2>
->   </div>
-> );
-> ```
->
-> 💡 **Una pista**: para estos casos, si no quieres añadir elementos innecesarios, puedes utilizar [fragments](https://es.reactjs.org/docs/fragments.html).
-
-### 3. Limpiando el código
+### 2. Limpiando el código
 
 Antes de añadir nada, vamos a hacer un poco de limpieza 🧹 al código que viene por defecto, básicamente al componente App (recuerda, `src/App.js`).
 
@@ -178,7 +57,7 @@ También vamos a hacer una limpieza de su archivo de estilos, `App.css`, borrand
 
 🧹 Ahora que hemos dejado el código algo más limpio, ¡vamos a empezar a añadir el nuestro para darle forma a la aplicación!
 
-### 4. Añadiendo estilos
+### 3. Añadiendo estilos
 
 Sí, estamos en _front_, así que, aunque no nos centraremos en los estilos de la aplicación, sí vamos a intentar hacer las cosas con una estética mínimamente decente. 😜
 
@@ -274,13 +153,13 @@ body {
 }
 ```
 
-> ⚠️ Para no extender más el taller, vamos a tener todo el código CSS en un archivo, pero lo ideal es que el código CSS relativo a cada componente esté en archivos diferentes, y sea cada componente el que importe su archivo CSS. Esta refactorización la puedes hacer después. :wink:
+> ⚠️ Para centrarnos más en las funcionalidades de React, vamos a centralizar el CSS, en dos unicos archivos, IMPORTANTE, el código CSS relativo a cada componente debería de estar en archivos diferentes, y que cada componente tenga su correspondiente archivo CSS.
 
 Ya tenemos nuestro `setup`, así que vamos con los componentes lógicos.
 
-### 5. Establecer y leer elementos con el state
+### 4. Establecer y leer elementos con el state
 
-Comenzamos estableciendo los elementos es nuestro `todo` que estarán disponibles al iniciar la aplicación.
+Comenzamos estableciendo los elementos de nuestro `todo` que estarán disponibles al iniciar la aplicación.
 
 ¿Recuerdas cuando hablamos antes del `state`? Comentamos que el `state` (o estado) de un componente permite manejar datos propios a lo largo de su ciclo de vida. Es decir, es una información, un dato local de ese componente.
 
@@ -370,9 +249,9 @@ taller-react-todo/
   README.md
 ```
 
-> 💡 Crear una carpeta `components` no es obligatorio, puedes tener todos tus componentes sueltos en `src`, aunque se suelen poner en una carpeta por convenio, para organizar el código. ¡Sigue unas buenas prácticas y tu yo del futuro te lo agradecerá! 🤗
+> 💡 Crear una carpeta `components` no es obligatorio, puedes tener todos tus componentes sueltos en `src`, aunque se suelen poner en una carpeta por convenio, para organizar el código y para una mayor comodidad. 
 
-`Item.js` corresponde al compontente `Item`, que se utiliará para representar a cada elemento, por lo que recibirá por `props` el contenido.
+`Item.js` corresponde al compontente `Item`, que se utilizará para representar a cada elemento, por lo que recibirá por `props` el contenido.
 
 ```js
 import React from "react";
@@ -453,9 +332,8 @@ export default Item;
 
 Ahora volvemos al navegador y vemos que sigue funcionando correctamente.
 
-> :bulb: **React Developers Tools** es una extensión para [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) y Firefox muy útil para desarrollar con [React](https://addons.mozilla.org/es/firefox/addon/react-devtools/), ya que te permite inspeccionar los componentes, su estado, e incluso modificarlo.
 
-### 6. Añadir elementos
+### 5. Añadir elementos
 
 Vale, ya podemos ver los elementos, pero, ¿y si queremos añadir uno nuevo? En este paso vamos a añadir esa funcionalidad.
 
@@ -615,7 +493,7 @@ export default ItemForm;
 
 ¡Y ya estaría! Ahora solo te queda comprobar que funciona. 😬
 
-### 7. Marcar elementos como completados
+### 6. Marcar elementos como completados
 
 Otra de las características esenciales de una aplicación to-do es poder marcar los elementos como completados, y eso es lo que vamos a hacer ahora.
 
@@ -664,7 +542,7 @@ El funcionamiento de la función es sencillo: clonamos el array, accedemos a la 
 
 > ⚠️ Recuerda que tienes que hacer una copia del array para no modificar el original, como en el paso anterior.
 
-Esta función que hemos creado se la vamos a sar al componente `Item` para que pueda utilizarla, además de la propiedad `isComplete`que luego vamos a utilizar:
+Esta función que hemos creado se la vamos a sar al componente `Item` para que pueda utilizarla, además de la propiedad `isCompleted`que luego vamos a utilizar:
 
 ```js
 <Item
@@ -688,7 +566,7 @@ const Item = props => {
 };
 ```
 
-Vale, ya tenemos configurado el `state` y vinculada la función que se encarga de modificarlo. Pero, ¿cómo vamos a saber si está completada o no? Para ello, tenemos definida en CSS la clase `is-completes`, que define esos estilos, por lo que, cuando `isCompleted` sea `true`, ese componente deberá llevar esa clase:
+Vale, ya tenemos configurado el `state` y vinculada la función que se encarga de modificarlo. Pero, ¿cómo vamos a saber si está completada o no? Para ello, tenemos definida en CSS la clase `is-completed`, que define esos estilos, por lo que, cuando `isCompleted` sea `true`, ese componente deberá llevar esa clase:
 
 ```js
 className={`Item${props.isCompleted ? " completed" : ""}`}
@@ -789,67 +667,97 @@ Por último, comprueba que funciona correctamente.
   <img alt="Aplicación Todo" height="600" src="https://raw.githubusercontent.com/YuneVK/portfolio-test/master/images/todo-complete.gif">
 </p>
 
-## ¡Enhorabuena! ¡Has completado el taller! 🎉
+### 6. Añadir dos nuevos botones
 
-Esperamos que hayas aprendido mucho y te hayas quedado con ganas de seguir trasteando. 😉 ¡Eso es lo importante!
+Vamos a añadir dos nuevos botones para cada una de nuestras tareas. El primero de ellos, hará la funcionalidad que hemos creado antes para marcar la tarea como completada, para ello tendremos que hacer una pequeña refactorización y el segundo botón borrará la tarea seleccionada. ¿Vamos?
 
-Ahora tienes un mundo abierto de posibilidades: puedes tratar de mejorar tu aplicación, añadir nuevas funcionalidades, incorporar un backend, seguir estudiando, practicando, ¡lo que tú quieras!
+El evento onClick que teniamos tendremos que pasarlo al nuevo botón.
+La refactorización quedaría así.
+ 
+```
+import React from "react";
 
-Si quieres seguir ampliando información, en los siguientes apartados te hemos dejado algunas ideas y recursos para que puedas seguir practicando. ¡Pero tómatelo con calma! ¡Ahora toca celebrarlo! 🍻
 
-<p align="center">
-  <img alt="Happy" width="300" src="https://media.giphy.com/media/LZElUsjl1Bu6c/giphy.gif">
-</p>
+const Item = props => {
+    return (
+        <li className={`Item${props.isCompleted ? " completed" : ""}`} >
+            <span>{props.content}</span>
+            <button onClick={() => props.completeItem(props.index)} className="Item done">Hecho</button>
+            <button onClick={() => props.itemDelete(props.index)} className="Item delete">Borrar</button>
+        </li>
+    );
+};
 
-### ✳️ ¡Bonus! ✳️
+export default Item;
+```
 
-Esto ya son deberes para casa. 😉
 
-Te proponemos algunas iteraciones más para que le sigas dando forma a la aplicación, asentar conceptos y ganar soltura.
+Vamos a darle un poquito de estilos a los dos nuevos colores, para diferenciar cual es el va a marcar la tarea como completada y el que la va a borrar. De nuevo, aplicamos los estilos de forma global, pero ¡Recuerda! cada componente debe de tener su propio estilo. Vamos a añadirlo en el archivo ``` App.css ```
 
-#### 1. Eliminar elementos
 
-Otra funcionalidad que debería tener la aplicación es la que permita eliminar una tarea. ¿Cómo lo harías? ¡Esto te lo dejamos para que lo pienses!
+```
+.Item.done {
+    border: 0;
+    padding: 10px;
+    margin: 0 10px;
+    background-color: #5EBA7D;
+    color: white;
+    font-size: 14px;
+}
 
-> 💡 Eliminar un elemento de la lista no es muy diferente a añadir uno. Primero, podrías añadir un botón al lado de cada `Item` para que, al pulsarlo, se ejecuta una función que modifique el `state` de `App` para eliminar ese elemento del array.
+.Item.delete {
+    border: 0;
+    padding: 10px;
+    margin: 0 10px;
+    background-color: #F22F47;
+    font-size: 14px;
+    color: white;
+}
 
-#### 2. Preparando tu aplicación para subir al servidor
 
-Ahora que ya tienes la aplicación lista, llega el momento de prepararla para subirla al servidor.
+```
+Volvamos con la funcionalidad, nos queda el último paso. Vamos a nuestro archivo ``` App.js```. Informamos la nueva prop itemDelete del componente ```Item``` y creamos la función con la lógica para eliminar el elemento de la lista.
 
-Para ello, tienes que crear un `build` de producción, que contendrá los archivos estáticos de tu aplicación, optimizados y compatibles para que puedas subirlos a tu servidor. 😄
+```
+  const deleteItem = index => {
+        const newItems = [...items];
+        newItems.splice(index, 1);
+        setItems(newItems);
+    };
 
-Tan solo tienes que ejecutar el comando `npm run build` y, una vez terminado, tendrás los archivos listos en la carpeta `dist` de tu respositorio. ¡Estos serán los que subirás a tu servidor!
+    return (
+        <div className="App">
+            <h1>Todo List</h1>
+            <ItemForm addItem={addItem} />
+            <ul className="ItemList">
+                {items.map((item, index) => (
+                    <Item
+                        key={index}
+                        index={index}
+                        content={item.content}
+                        completeItem={completeItem}
+                        isCompleted={item.isCompleted}
+                        itemDelete={deleteItem}
+                    />
+                ))}
+            </ul>
+        </div>
+    );
+    
+    
+```
 
-> 💡 Si no tienes un servidor para probarlo, puedes usar [GitHub Pages](https://pages.github.com/), pero recuerda que los archivos estarán en la carpeta `dist`. También puedes usar [Heroku](https://www.heroku.com/) siguiendo [este tutorial](https://medium.com/jeremy-gottfrieds-tech-blog/tutorial-how-to-deploy-a-production-react-app-to-heroku-c4831dfcfa08), aunque el proceso es un poco más complejo.
+Como puedes ver, es una función muy sencilla y parecida a la de ```addItem```. En este caso, simplemente eliminamos el elemento del array utilizando el método ```splice```. https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/splice  Este método, recibe como parametros, 2 números: el primero es el indice en el cual comienza a borrar, y el segundo es el número de elementos que va a borrar.
+De nuevo, setemos nuestro state de Items para actualizarlo.
 
-> 💡 Si quieres más información sobre el proceso de `build` puedes visitar [este enlace de la documentación](https://create-react-app.dev/docs/production-build).
+## Hemos terminado :blush:
 
-#### Otras cosas que puedes añadir/mejorar de la aplicación
+La resolución de este ejercicio lo puedes encontrar en la rama "task-button"
 
-Te dejamos otras ideas para que sigas practicando:
+En la rama dev, podrás ver la solución del este pequeño ejercicio. El último ejercicio, el de los botones, lo podrás encontrar en la rama ```task-button```.
 
-- [ ] En nuestra aplicación, podemos crear y eliminar elementos. Pero, ¿qué pasa si queremos editarlos? 😬
-- [ ] Puedes encapsular más los componentes, teniendo una hoja de estilos asociada a cada uno (que el componente `Item` tenga su propio `Item.css`). ¡Esta sería la forma correcta!
-- [ ] ¡Adapta los estilos! Nosotros solo te hemos puesto unos de ejemplo, pero puedes adaptarlo a tu gusto.
-- [ ] ...¡Y lo que se te ocurra! 😉 Hay muchas posibilidades, piensa en qué te gustaría añadir y hazlo.
+Como extra, hemos creado un ejemplo sencillo para trabajar con React Router. ¿Quieres verlo? Cambiate de rama y mira como es el código. La rama es ```react-routing```
 
-### Enlaces útiles para ampliar información y seguir aprendiendo
 
-Por último, te dejamos algunos enlaces de interés:
 
-- **React Developer Tools**: la extensión para [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) y [Firefox](https://addons.mozilla.org/es/firefox/addon/react-devtools/) que te permite inspeccionar los elementos de React.
-- [**React Status**](https://react.statuscode.com/): una newsletter semanal con artículos, tutoriales y novedades del ecosistema de React. ¡Muy útil para estar siempre al día!
-- [**💻 JavaScript && React**](https://docs.frontity.org/javascript-and-and-react): una guía muy recomendable de [Frontity](https://frontity.org/) para repasar los fundamentos de JavaScript y React.
 
-## ¡Pero esto no termina aquí!
-
-¡No ha hecho más que empezar!
-
-Si tienes cualquier duda o sugerencia, puedes dejarla en un `issue` de este repo, o incluso hacer una `pull request` encuentras algún error o quieres añadir algo. 🤗
-
-También puedes contactar conmigo a través de twitter ([@Yune\_\_vk](https://twitter.com/Yune__vk)), [LinkedIn](https://www.linkedin.com/feed/) e incluso en la página de [Meetup del evento](https://www.meetup.com/es-ES/WordPress-Madrid/events/263751142/).
-
-<p align="center">
-  <img alt="Despedida" width="500" src="https://media.giphy.com/media/1msH5HVV15d9eDglxh/giphy.gif">
-</p>
