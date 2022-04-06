@@ -33,8 +33,6 @@ El primer paso es sencillo: ¡hay que configurar nuestro entorno de trabajo!
   <img alt="Create-react-app home" width="600" src="https://raw.githubusercontent.com/YuneVK/portfolio-test/master/images/home-create-react-app.png">
 </p>
 
-_It works!_ 😁 ¡Seguimos!
-
 
 ### 2. Limpiando el código
 
@@ -752,9 +750,15 @@ Volvamos con la funcionalidad, nos queda el último paso. Vamos a nuestro archiv
 Como puedes ver, es una función muy sencilla y parecida a la de ```addItem```. En este caso, simplemente eliminamos el elemento del array utilizando el método ```splice```. https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/splice  Este método, recibe como parametros, 2 números: el primero es el indice en el cual comienza a borrar, y el segundo es el número de elementos que va a borrar.
 De nuevo, setemos nuestro state de Items para actualizarlo.
 
+## Hemos terminado :blush:
+
 La resolución de este ejercicio lo puedes encontrar en la rama "task-button"
 
-## ¡Enhorabuena! ¡Has completado el taller! 🎉
+En la rama dev, podrás ver la solución del este pequeño ejercicio. El último ejercicio, el de los botones, lo podrás encontrar en la rama ```task-button```.
+
+Como extra, hemos creado un ejemplo sencillo para trabajar con React Router. ¿Quieres verlo? Cambiate de rama y mira como es el código. La rama es ```react-routing```
+
+
 
 
 
