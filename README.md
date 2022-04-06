@@ -673,15 +673,51 @@ Por último, comprueba que funciona correctamente.
 
 Vamos a añadir dos nuevos botones para cada una de nuestras tareas. El primero de ellos, hará la funcionalidad que hemos creado antes para marcar la tarea como completada, para ello tendremos que hacer una pequeña refactorización y el segundo botón borrará la tarea seleccionada. ¿Vamos?
 
-El evento onClick que teniamos antes en la etiqueta <li> pasará al nuevo botón.
-
+El evento onClick que teniamos tendremos que pasarlo al nuevo botón.
+La refactorización quedaría así.
  
 ```
-function test() {
-  console.log("notice the blank line before this function?");
-}
+import React from "react";
+
+
+const Item = props => {
+    return (
+        <li className={`Item${props.isCompleted ? " completed" : ""}`} >
+            <span>{props.content}</span>
+            <button onClick={() => props.completeItem(props.index)} className="Item done">Hecho</button>
+            <button onClick={() => props.itemDelete(props.index)} className="Item delete">Borrar</button>
+        </li>
+    );
+};
+
+export default Item;
 ```
-  
+
+
+Vamos a darle un poquito de estilos a los dos nuevos colores, para diferenciar cual es el va a marcar la tarea como completada y el que la va a borrar. De nuevo, aplicamos los estilos de forma global, pero ¡Recuerda! cada componente debe de tener su propio estilo. Vamos a añadirlo en el archivo ``` App.css ```
+
+
+```
+.Item.done {
+    border: 0;
+    padding: 10px;
+    margin: 0 10px;
+    background-color: #5EBA7D;
+    color: white;
+    font-size: 14px;
+}
+
+.Item.delete {
+    border: 0;
+    padding: 10px;
+    margin: 0 10px;
+    background-color: #F22F47;
+    font-size: 14px;
+    color: white;
+}
+
+
+```
 
 ## ¡Enhorabuena! ¡Has completado el taller! 🎉
 
