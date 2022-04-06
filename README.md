@@ -4,7 +4,7 @@ Este proyecto fue creado por YuneVK. El repositorio original lo podemos encontra
 
 ## ¿Qué vamos a hacer?
 
-Desde esta practica, vamos a trabajar sobre el proyecto de ToDo List original y añadiremos alguna nueva funcionalidad para que podamos poner en práctica lo que hemos visto durante el curso.
+Desde esta práctica, vamos a trabajar sobre el proyecto de ToDo List original y añadiremos alguna nueva funcionalidad para que podamos poner en práctica lo que hemos visto durante el curso.
 
 
 
@@ -36,7 +36,7 @@ El primer paso es sencillo: ¡hay que configurar nuestro entorno de trabajo!
 _It works!_ 😁 ¡Seguimos!
 
 
-### 3. Limpiando el código
+### 2. Limpiando el código
 
 Antes de añadir nada, vamos a hacer un poco de limpieza 🧹 al código que viene por defecto, básicamente al componente App (recuerda, `src/App.js`).
 
@@ -59,7 +59,7 @@ También vamos a hacer una limpieza de su archivo de estilos, `App.css`, borrand
 
 🧹 Ahora que hemos dejado el código algo más limpio, ¡vamos a empezar a añadir el nuestro para darle forma a la aplicación!
 
-### 4. Añadiendo estilos
+### 3. Añadiendo estilos
 
 Sí, estamos en _front_, así que, aunque no nos centraremos en los estilos de la aplicación, sí vamos a intentar hacer las cosas con una estética mínimamente decente. 😜
 
@@ -159,7 +159,7 @@ body {
 
 Ya tenemos nuestro `setup`, así que vamos con los componentes lógicos.
 
-### 5. Establecer y leer elementos con el state
+### 4. Establecer y leer elementos con el state
 
 Comenzamos estableciendo los elementos de nuestro `todo` que estarán disponibles al iniciar la aplicación.
 
@@ -335,7 +335,7 @@ export default Item;
 Ahora volvemos al navegador y vemos que sigue funcionando correctamente.
 
 
-### 6. Añadir elementos
+### 5. Añadir elementos
 
 Vale, ya podemos ver los elementos, pero, ¿y si queremos añadir uno nuevo? En este paso vamos a añadir esa funcionalidad.
 
@@ -495,7 +495,7 @@ export default ItemForm;
 
 ¡Y ya estaría! Ahora solo te queda comprobar que funciona. 😬
 
-### 7. Marcar elementos como completados
+### 6. Marcar elementos como completados
 
 Otra de las características esenciales de una aplicación to-do es poder marcar los elementos como completados, y eso es lo que vamos a hacer ahora.
 
@@ -544,7 +544,7 @@ El funcionamiento de la función es sencillo: clonamos el array, accedemos a la 
 
 > ⚠️ Recuerda que tienes que hacer una copia del array para no modificar el original, como en el paso anterior.
 
-Esta función que hemos creado se la vamos a sar al componente `Item` para que pueda utilizarla, además de la propiedad `isComplete`que luego vamos a utilizar:
+Esta función que hemos creado se la vamos a sar al componente `Item` para que pueda utilizarla, además de la propiedad `isCompleted`que luego vamos a utilizar:
 
 ```js
 <Item
@@ -568,7 +568,7 @@ const Item = props => {
 };
 ```
 
-Vale, ya tenemos configurado el `state` y vinculada la función que se encarga de modificarlo. Pero, ¿cómo vamos a saber si está completada o no? Para ello, tenemos definida en CSS la clase `is-completes`, que define esos estilos, por lo que, cuando `isCompleted` sea `true`, ese componente deberá llevar esa clase:
+Vale, ya tenemos configurado el `state` y vinculada la función que se encarga de modificarlo. Pero, ¿cómo vamos a saber si está completada o no? Para ello, tenemos definida en CSS la clase `is-completed`, que define esos estilos, por lo que, cuando `isCompleted` sea `true`, ese componente deberá llevar esa clase:
 
 ```js
 className={`Item${props.isCompleted ? " completed" : ""}`}
@@ -669,67 +669,21 @@ Por último, comprueba que funciona correctamente.
   <img alt="Aplicación Todo" height="600" src="https://raw.githubusercontent.com/YuneVK/portfolio-test/master/images/todo-complete.gif">
 </p>
 
+### 6. Añadir dos nuevos botones
+
+Vamos a añadir dos nuevos botones para cada una de nuestras tareas. El primero de ellos, hará la funcionalidad que hemos creado antes para marcar la tarea como completada, para ello tendremos que hacer una pequeña refactorización y el segundo botón borrará la tarea seleccionada. ¿Vamos?
+
+El evento onClick que teniamos antes en la etiqueta <li> pasará al nuevo botón.
+
+ 
+```
+function test() {
+  console.log("notice the blank line before this function?");
+}
+```
+  
+
 ## ¡Enhorabuena! ¡Has completado el taller! 🎉
 
-Esperamos que hayas aprendido mucho y te hayas quedado con ganas de seguir trasteando. 😉 ¡Eso es lo importante!
 
-Ahora tienes un mundo abierto de posibilidades: puedes tratar de mejorar tu aplicación, añadir nuevas funcionalidades, incorporar un backend, seguir estudiando, practicando, ¡lo que tú quieras!
 
-Si quieres seguir ampliando información, en los siguientes apartados te hemos dejado algunas ideas y recursos para que puedas seguir practicando. ¡Pero tómatelo con calma! ¡Ahora toca celebrarlo! 🍻
-
-<p align="center">
-  <img alt="Happy" width="300" src="https://media.giphy.com/media/LZElUsjl1Bu6c/giphy.gif">
-</p>
-
-### ✳️ ¡Bonus! ✳️
-
-Esto ya son deberes para casa. 😉
-
-Te proponemos algunas iteraciones más para que le sigas dando forma a la aplicación, asentar conceptos y ganar soltura.
-
-#### 1. Eliminar elementos
-
-Otra funcionalidad que debería tener la aplicación es la que permita eliminar una tarea. ¿Cómo lo harías? ¡Esto te lo dejamos para que lo pienses!
-
-> 💡 Eliminar un elemento de la lista no es muy diferente a añadir uno. Primero, podrías añadir un botón al lado de cada `Item` para que, al pulsarlo, se ejecuta una función que modifique el `state` de `App` para eliminar ese elemento del array.
-
-#### 2. Preparando tu aplicación para subir al servidor
-
-Ahora que ya tienes la aplicación lista, llega el momento de prepararla para subirla al servidor.
-
-Para ello, tienes que crear un `build` de producción, que contendrá los archivos estáticos de tu aplicación, optimizados y compatibles para que puedas subirlos a tu servidor. 😄
-
-Tan solo tienes que ejecutar el comando `npm run build` y, una vez terminado, tendrás los archivos listos en la carpeta `dist` de tu respositorio. ¡Estos serán los que subirás a tu servidor!
-
-> 💡 Si no tienes un servidor para probarlo, puedes usar [GitHub Pages](https://pages.github.com/), pero recuerda que los archivos estarán en la carpeta `dist`. También puedes usar [Heroku](https://www.heroku.com/) siguiendo [este tutorial](https://medium.com/jeremy-gottfrieds-tech-blog/tutorial-how-to-deploy-a-production-react-app-to-heroku-c4831dfcfa08), aunque el proceso es un poco más complejo.
-
-> 💡 Si quieres más información sobre el proceso de `build` puedes visitar [este enlace de la documentación](https://create-react-app.dev/docs/production-build).
-
-#### Otras cosas que puedes añadir/mejorar de la aplicación
-
-Te dejamos otras ideas para que sigas practicando:
-
-- [ ] En nuestra aplicación, podemos crear y eliminar elementos. Pero, ¿qué pasa si queremos editarlos? 😬
-- [ ] Puedes encapsular más los componentes, teniendo una hoja de estilos asociada a cada uno (que el componente `Item` tenga su propio `Item.css`). ¡Esta sería la forma correcta!
-- [ ] ¡Adapta los estilos! Nosotros solo te hemos puesto unos de ejemplo, pero puedes adaptarlo a tu gusto.
-- [ ] ...¡Y lo que se te ocurra! 😉 Hay muchas posibilidades, piensa en qué te gustaría añadir y hazlo.
-
-### Enlaces útiles para ampliar información y seguir aprendiendo
-
-Por último, te dejamos algunos enlaces de interés:
-
-- **React Developer Tools**: la extensión para [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) y [Firefox](https://addons.mozilla.org/es/firefox/addon/react-devtools/) que te permite inspeccionar los elementos de React.
-- [**React Status**](https://react.statuscode.com/): una newsletter semanal con artículos, tutoriales y novedades del ecosistema de React. ¡Muy útil para estar siempre al día!
-- [**💻 JavaScript && React**](https://docs.frontity.org/javascript-and-and-react): una guía muy recomendable de [Frontity](https://frontity.org/) para repasar los fundamentos de JavaScript y React.
-
-## ¡Pero esto no termina aquí!
-
-¡No ha hecho más que empezar!
-
-Si tienes cualquier duda o sugerencia, puedes dejarla en un `issue` de este repo, o incluso hacer una `pull request` encuentras algún error o quieres añadir algo. 🤗
-
-También puedes contactar conmigo a través de twitter ([@Yune\_\_vk](https://twitter.com/Yune__vk)), [LinkedIn](https://www.linkedin.com/feed/) e incluso en la página de [Meetup del evento](https://www.meetup.com/es-ES/WordPress-Madrid/events/263751142/).
-
-<p align="center">
-  <img alt="Despedida" width="500" src="https://media.giphy.com/media/1msH5HVV15d9eDglxh/giphy.gif">
-</p>
