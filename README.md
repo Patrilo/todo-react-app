@@ -750,6 +750,20 @@ Volvamos con la funcionalidad, nos queda el último paso. Vamos a nuestro archiv
 Como puedes ver, es una función muy sencilla y parecida a la de ```addItem```. En este caso, simplemente eliminamos el elemento del array utilizando el método ```splice```. https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/splice  Este método, recibe como parametros, 2 números: el primero es el indice en el cual comienza a borrar, y el segundo es el número de elementos que va a borrar.
 De nuevo, setemos nuestro state de Items para actualizarlo.
 
+
+
+### 7. Routing
+
+A continuación vamos añadir un enrutado básico, donde al hacer click en cada uno de los items enviaremos cierta información a una nueva vista.
+
+1. Crear componente itemDetail el cual sera el encargado de pintar el detalle del item seleccionado con un botón de volver que nos retorne a la home
+2. Importar las dependencias del routing de React en el index.js, definiendo a su vez las rutas
+3. En el component app.js englobar cada item dentro de un Link donde se realizara la redirección, el cual deberemos pasarle el index
+4. Por ultimo, en el componente itemDetail utilizaremos el hook useParams para obtener la información que estamos enviandola por url desde el app.js y pintarla en el html
+
+
+
+
 ## Hemos terminado :blush:
 
 La resolución de este ejercicio lo puedes encontrar en la rama "task-button"
