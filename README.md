@@ -718,6 +718,41 @@ Vamos a darle un poquito de estilos a los dos nuevos colores, para diferenciar c
 
 
 ```
+Volvamos con la funcionalidad, nos queda el último paso. Vamos a nuestro archivo ``` App.js```. Informamos la nueva prop itemDelete del componente ```Item``` y creamos la función con la lógica para eliminar el elemento de la lista.
+
+```
+  const deleteItem = index => {
+        const newItems = [...items];
+        newItems.splice(index, 1);
+        setItems(newItems);
+    };
+
+    return (
+        <div className="App">
+            <h1>Todo List</h1>
+            <ItemForm addItem={addItem} />
+            <ul className="ItemList">
+                {items.map((item, index) => (
+                    <Item
+                        key={index}
+                        index={index}
+                        content={item.content}
+                        completeItem={completeItem}
+                        isCompleted={item.isCompleted}
+                        itemDelete={deleteItem}
+                    />
+                ))}
+            </ul>
+        </div>
+    );
+    
+    
+```
+
+Como puedes ver, es una función muy sencilla y parecida a la de ```addItem```. En este caso, simplemente eliminamos el elemento del array utilizando el método ```splice```. https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/splice  Este método, recibe como parametros, 2 números: el primero es el indice en el cual comienza a borrar, y el segundo es el número de elementos que va a borrar.
+De nuevo, setemos nuestro state de Items para actualizarlo.
+
+La resolución de este ejercicio lo puedes encontrar en la rama "task-button"
 
 ## ¡Enhorabuena! ¡Has completado el taller! 🎉
 
