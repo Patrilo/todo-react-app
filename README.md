@@ -1,10 +1,12 @@
 #  Ejercicio Práctico React: aplicación To-do List
 
-
+Este proyecto fue creado por YuneVK. El repositorio original lo podemos encontrar en esta url https://github.com/YuneVK/taller-react-todo Es un proyecto muy completo para empezar a trabajar con React, y las indicaciones para trabajar con el proyecto son perfectas para crear un proyecto desde 0. Las podemos encontrar también en este README
 
 ## ¿Qué vamos a hacer?
 
-Vamos a hacer un sencillo Todo en el que pongamos en práctica todo lo que hemos aprendido hoy: crear un proyecto, componentes, `state`, `props`y alguna cosilla de `ES6`.
+Desde esta practica, vamos a trabajar sobre el proyecto de ToDo List original y añadiremos alguna nueva funcionalidad para que podamos poner en práctica lo que hemos visto durante el curso.
+
+
 
 El resultado final será este:
 
@@ -12,9 +14,7 @@ El resultado final será este:
   <img alt="Aplicación Todo" height="600" src="https://raw.githubusercontent.com/YuneVK/portfolio-test/master/images/aplicacion-todo.gif">
 </p>
 
-> 💡 Si, durante el taller, en algún momento te atascas y no sabes cómo continuar, ¡no dudes en preguntarnos! Aunque te vamos a dejar una pista 😏, en la rama `dev` podrás ver el código del ejercicio (recuerda que puedes cambiar de rama con el comando `git checkout <nombre>`). Puedes tenerlo como referencia, ¡pero recuerda que como se aprende de verdad es peleándote con el código!
 
-¿Estás listo? ¡Pues empecemos! 🤗
 
 ## Creando nuestra aplicación
 
@@ -35,117 +35,6 @@ El primer paso es sencillo: ¡hay que configurar nuestro entorno de trabajo!
 
 _It works!_ 😁 ¡Seguimos!
 
-> ⚠️ **¿Tienes algún problema con Git/Node y no puedes seguir estos pasos?** ¡No te preocupes! Hemos creado este repo de [Codesandbox](https://codesandbox.io/s/create-react-app-0q9nn?fontsize=14) para que no te pierdas nada del taller. Así puedes seguirlo, y cuando termine vemos cómo podemos arreglar esos problemas. 😉
-
-### 2. Destripando la estructura del proyecto
-
-En este paso vamos a ver mientras la estructura del proyecto generado (los archivos que no hemos incluido los vamos a ignorar hoy 🤫):
-
-```
-taller-react-todo/
-  node_modules/
-  public/
-    index.html
-    favicon.ico
-  src/
-    App.css
-    App.js
-    App.test.js
-    index.css
-    index.js
-    logo.svg
-  package.json
-  README.md
-```
-
-Tenemos tres carpetas: `node_modules`, `src` y `public`.
-
-- `node_modules`: es donde de almacenan las dependencias del proyecto.
-- `public`: la raíz del servidor, donde está el `index.html` y donde añadiremos los archivos estáticos que queramos utilizar (por ejemplo las imágenes).
-- `src`: el directorio `source`, donde estará todo el código relativo a compoentes
-
-Además, en la raíz también tenemos los siguientes archivos:
-
-- `README.md`: archivo markdown con la información del proyecto.
-
-- `package.json`: donde está la información de nuestro proyecto (dependencias, scripts, etc).
-
-- `.gitignore`: donde se configuran los archivos que `git` va a ignorar, es decir, los que no se van a subir. Un ejemplo de archivos que se deben subir es aquel donde tengas _API keys_.
-
-  > ⚠️ **¡CUIDADO CON SUBIR `NODE_MODULES!`** Esta carpeta suele ser muy pesada e innecesaria la subida, por lo que se suele añadir al `.gitignore` para que no se suba. Por defecto `create-react-app`ya lo añade, pero debes tenerlo en cuenta para otros proyectos en los que utilices NPM.
-
-Otro archivo clave en este proyecto es el `index.js` que está dentro de la carpeta `src`, ya que es el punto de entrada de la aplicación. Si lo abrimos veremos que tiene muy pocas líneas:
-
-```js
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import * as serviceWorker from "./serviceWorker";
-
-ReactDOM.render(<App />, document.getElementById("root"));
-```
-
-Pero son claves para su funcionamiento. Como hablamos antes, lo primero es importar `React` y todos sus paquetes necesarios (`react-dom`), además del componente principal que vamos a utilizar, `App`.
-
-A través del método `ReactDOM.render` renderizamos el componente `App` dentro del elemento del DOM que tiene como ID `root` (una pista, si vamos a `public/index.html` veremos ese elemento).
-
-Si vamos al componente App (`src/App.js`) veremos el siguiente contenido:
-
-```js
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
-```
-
-Esto ya te va resultando familiar, ¿verdad? 😄
-
-> ⚠️ **¡Recuerda!** `class` es una palabra reservada de JavaScript, por lo que, cuando queramos establecer este atributo, tendremos que hacerlo con `className`.
-
-> ⚠️ **¡Otra cosa que debes tener en cuenta!** En React es necesario que todo lo que retornemos esté contenido en un único elemento. Por ejemplo, esto nos daría error:
->
-> ```js
-> return (
->     <h1>Elemento</h1>
->     <h2>Elemento</h2>
-> );
-> ```
->
-> Mientras que esto sí sería correcto:
->
-> ```js
-> return (
->   <div>
->     <h1>Elemento</h1>
->     <h2>Elemento</h2>
->   </div>
-> );
-> ```
->
-> 💡 **Una pista**: para estos casos, si no quieres añadir elementos innecesarios, puedes utilizar [fragments](https://es.reactjs.org/docs/fragments.html).
 
 ### 3. Limpiando el código
 
@@ -266,13 +155,13 @@ body {
 }
 ```
 
-> ⚠️ Para no extender más el taller, vamos a tener todo el código CSS en un archivo, pero lo ideal es que el código CSS relativo a cada componente esté en archivos diferentes, y sea cada componente el que importe su archivo CSS. Esta refactorización la puedes hacer después. :wink:
+> ⚠️ Para centrarnos más en las funcionalidades de React, vamos a centralizar el CSS, en dos unicos archivos, IMPORTANTE, el código CSS relativo a cada componente debería de estar en archivos diferentes, y que cada componente tenga su correspondiente archivo CSS.
 
 Ya tenemos nuestro `setup`, así que vamos con los componentes lógicos.
 
 ### 5. Establecer y leer elementos con el state
 
-Comenzamos estableciendo los elementos es nuestro `todo` que estarán disponibles al iniciar la aplicación.
+Comenzamos estableciendo los elementos de nuestro `todo` que estarán disponibles al iniciar la aplicación.
 
 ¿Recuerdas cuando hablamos antes del `state`? Comentamos que el `state` (o estado) de un componente permite manejar datos propios a lo largo de su ciclo de vida. Es decir, es una información, un dato local de ese componente.
 
@@ -362,9 +251,9 @@ taller-react-todo/
   README.md
 ```
 
-> 💡 Crear una carpeta `components` no es obligatorio, puedes tener todos tus componentes sueltos en `src`, aunque se suelen poner en una carpeta por convenio, para organizar el código. ¡Sigue unas buenas prácticas y tu yo del futuro te lo agradecerá! 🤗
+> 💡 Crear una carpeta `components` no es obligatorio, puedes tener todos tus componentes sueltos en `src`, aunque se suelen poner en una carpeta por convenio, para organizar el código y para una mayor comodidad. 
 
-`Item.js` corresponde al compontente `Item`, que se utiliará para representar a cada elemento, por lo que recibirá por `props` el contenido.
+`Item.js` corresponde al compontente `Item`, que se utilizará para representar a cada elemento, por lo que recibirá por `props` el contenido.
 
 ```js
 import React from "react";
@@ -445,7 +334,6 @@ export default Item;
 
 Ahora volvemos al navegador y vemos que sigue funcionando correctamente.
 
-> :bulb: **React Developers Tools** es una extensión para [Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) y Firefox muy útil para desarrollar con [React](https://addons.mozilla.org/es/firefox/addon/react-devtools/), ya que te permite inspeccionar los componentes, su estado, e incluso modificarlo.
 
 ### 6. Añadir elementos
 
